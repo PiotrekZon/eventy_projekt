@@ -46,11 +46,11 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'piotrez3.vot.pl'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'piotrez3_eventy'),
+            'username' => env('DB_USERNAME', 'piotrez3_eventy'),
+            'password' => env('DB_PASSWORD', '2O4@R2#@o53.,Df'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -106,7 +106,7 @@ return [
 
     'migrations' => 'migrations',
 
-    /*
+    /*sadfdsa
     |--------------------------------------------------------------------------
     | Redis Databases
     |--------------------------------------------------------------------------
