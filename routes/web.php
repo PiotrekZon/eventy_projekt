@@ -20,3 +20,25 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/rents/{id?}', [App\Http\Controllers\RentController::class, 'show'], function ($id = null) {
+    return $id;
+})->name('rents');
+
+
+Route::post('/rents', [App\Http\Controllers\RentController::class, 'create'])->name('rents.create');
+
