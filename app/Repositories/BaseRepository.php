@@ -11,26 +11,26 @@ abstract class BaseRepository implements RepositoryInterface {
     /**
      * @var
      */
-    protected $model;
+    protected $event;
 
     public function getAll($columns = array('*')) {
-        return $this->model->get($columns);
+        return $this->event->get($columns);
     }
 
     public function create(array $data) {
-        return $this->model->create($data);
+        return $this->event->create($data);
     }
 
     public function update(array $data, $id) {
-        return $this->model->where("id", '=', $id)->update($data);
+        return $this->event->where("id", '=', $id)->update($data);
     }
 
     public function delete($id) {
-        return $this->model->destroy($id);
+        return $this->event->destroy($id);
     }
 
      public function find($id, $columns = array('*')) {
-        return $this->model->find($id, $columns);
+        return $this->event->find($id, $columns);
     }
 
 }

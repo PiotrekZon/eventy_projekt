@@ -50,4 +50,15 @@ class RentRepository extends BaseRepository
         return $dates;
     }
 
+    public function getAllByEvent($idEvent) {
+        return $this->model->with('event')->where('event_id','=',$idEvent)->get();
+    }
+    public function accept($idRent) {
+ 
+        $rent = $this->model->find($idRent);
+        $rent->status = 2;
+        $rent->save();
+        
+        return $rent;
+    }
 }

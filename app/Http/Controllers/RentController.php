@@ -19,7 +19,46 @@ class RentController extends Controller
         //$this->middleware('auth');
        
     }
-
+    public function getAll(RentRepository $rent)
+    {
+        $rents = $rent->getAll();
+ 
+        return response()
+                ->json($rents);
+    }
+ 
+ 
+    public function getAllByEvent(RentRepository $rent, $id)
+    {
+        $rents = $rent->getAllByEvent($id);
+ 
+        return response()
+                ->json($rents);
+    }
+ 
+    public function accept(RentRepository $rent, $id)
+    {
+        $rent = $rent->accept($id);
+ 
+        return response()
+                ->json($rent);
+    }
+ 
+   public function delete(RentRepository $rent, $id)
+    {
+        
+        $status = $rent->delete($id);
+ 
+        if($status)
+        {
+            return response()
+                ->json(['status'=>'success']);
+        }
+        else{
+             return response()
+                ->json(['status'=>'fail']);
+        }
+    }
     /**
      * Show the application rents.
      *
