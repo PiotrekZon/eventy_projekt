@@ -76,45 +76,29 @@
     <!-- Content -->
         @yield('content')
     
-      <!-- Thumbnails -->
+ <!-- Thumbnails -->
+ @isset($events)
     <div class="container thumbs">
+      
+      @foreach ($events as $event)
+ 
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src="img/pic1.jpg" alt="" class="img-responsive">
+          <img src="img/events/{{$event->image}}" alt="" class="img-responsive">
           <div class="caption">
-            <h3 class="">Event I</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            <h3 class="">{{$event->title}}</h3>
+            <p>{{$event->description}}</p>
+            
             <div class="btn-toolbar text-center">
-              <a href="#" role="button" class="btn btn-primary pull-right">Szczegóły</a>
+              <a href="/rents/{{$event->id}}" role="button" class="btn btn-primary pull-right">Details</a>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="img/pic2.jpg" alt="" class="img-responsive">
-          <div class="caption">
-            <h3 class="">Event II</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-            <div class="btn-toolbar text-center">
-              <a href="#" role="button" class="btn btn-primary pull-right">Szczegóły</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="img/pic3.jpg" alt="" class="img-responsive">
-          <div class="caption">
-            <h3 class="">Event III</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-            <div class="btn-toolbar text-center">
-              <a href="#" role="button" class="btn btn-primary pull-right">Szczegóły</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div><!-- End Thumbnails -->  
+     
+      @endforeach
+    </div>
+     @endisset<!-- End Thumbnails -->
       
       
     <!-- Footer -->
