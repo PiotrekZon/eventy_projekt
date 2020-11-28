@@ -12,7 +12,7 @@ class Rent extends Model
      * @var array
      */
     protected $fillable = [
-        'start', 'end', 'renter', 'event_id','price','payment_status','status'
+        'place_num', 'renter', 'event_id','price','payment_status','status'
     ];
    
     public function event()

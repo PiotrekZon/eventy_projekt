@@ -6,6 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+           <h2>Wybierz miejsce</h2>
             <table class="event-list display table-hover table"> 
              <thead>
               <tr>
@@ -18,24 +19,13 @@
             <tr>
                 @if (is_array($v))
                 <td>               
-                    {{$v[0]}} 
-                </td>
-                <td>               
-                    
-                </td>
-                <td> 
-                    Zarezerwowane 
+                    {{$v[0]}}  Zarezerwowane 
                 </td>
                 @else
-                 <td>               
-                    {{$v}} 
-                </td>
                 <td>               
-                    <input type="checkbox" name="dates[]" class="rent-dates" value="{{$v}} "/>
+                    {{$v}}, <input type="checkbox" name="dates[]" class="rent-dates" value="{{$v}} "/> Zarezerwuj!
                 </td>
-                <td> 
-                   Zarezerwuj!
-                </td>
+                
                 @endif
 
             </tr>

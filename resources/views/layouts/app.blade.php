@@ -11,7 +11,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
  
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title>
  
 	
  
@@ -73,32 +73,10 @@
       </div>
     </div><!-- End Navigation bar -->
  
-    <!-- Content -->
-        @yield('content')
+<!-- Content -->
+@yield('content')
     
- <!-- Thumbnails -->
- @isset($events)
-    <div class="container thumbs">
-      
-      @foreach ($events as $event)
  
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="img/events/{{$event->image}}" alt="" class="img-responsive">
-          <div class="caption">
-            <h3 class="">{{$event->title}}</h3>
-            <p>{{$event->description}}</p>
-            
-            <div class="btn-toolbar text-center">
-              <a href="/rents/{{$event->id}}" role="button" class="btn btn-primary pull-right">Details</a>
-            </div>
-          </div>
-        </div>
-      </div>
-     
-      @endforeach
-    </div>
-     @endisset<!-- End Thumbnails -->
       
       
     <!-- Footer -->

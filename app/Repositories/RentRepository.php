@@ -25,7 +25,7 @@ class RentRepository extends BaseRepository
         $seasonEnd = Carbon::createFromDate(2017, 11, 1, 'Europe/Warsaw');
 
         /**
-        *    Iterujemy po dniach
+        *    Iterujemy po miejscach
         */
         for($date = $seasonStart; $date->lte($seasonEnd); $date->addDay()) {
 

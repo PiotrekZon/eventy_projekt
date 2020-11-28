@@ -14,14 +14,13 @@ class CreateRentsTable extends Migration
     public function up()
     {
        Schema::create('rents', function (Blueprint $table) {
-            $table->increments('id');
-            $table->dateTime('start');
-            $table->dateTime('end');
-            $table->string('renter');
-            $table->integer('event_id');
-            $table->float('price')->nullable();
-            $table->tinyInteger('payment_status')->default("0");
-            $table->tinyInteger('status')->default("1");
+            $table->increments('id'); //id rezerwacji
+            $table->integer('place_num'); //numer miejsca
+            $table->string('renter'); //uzytkownik rezerwujacy
+            $table->integer('event_id'); //id eventu
+            $table->float('price')->nullable(); //cena
+            $table->tinyInteger('payment_status')->default("0"); //status opłaty
+            $table->tinyInteger('status')->default("1"); //status opłaty
             $table->timestamps();
         });
     }
