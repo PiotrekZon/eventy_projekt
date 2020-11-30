@@ -1,3 +1,5 @@
+
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -30,3 +32,61 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+$(document).ready(function() {
+	var rent = (function(){
+        var inputBoxes = $('.rent-dates');
+        
+        var rentChoose = function(){
+
+	    	var dates = [];
+	    	inputBoxesChecked = $('.rent-dates:checked');
+
+		count = $('.rent-dates:checked').length;
+
+	    	if(count > 0)
+	    	{
+	    		inputBoxesChecked.each(function(){
+	    		     dates.push($(this).val());	
+			});	
+
+	    		if(count == 1)
+	    		{
+	    			$('.rent-button').html("Rezerwuj "+ count + " dzień");
+	    		}
+	    		else
+	    		{
+	    			$('.rent-button').html("Rezerwuj "+ count + " dni");
+	    		}	    		
+	    		$('.rent-button').show();
+	    	}
+	    	else
+	    	{
+	    		$('.rent-button').hide();
+	    	}
+
+	    	$('.rent-list').html(dates.toString());
+	    	$('.dates_input').val(dates.toString());
+	};
+
+
+	var bindFunctions = function() {
+			
+		inputBoxes.on("change", rentChoose);
+	};	
+
+	var init = function() {
+		rentChoose();
+    		bindFunctions();
+
+	  };
+
+	 return {
+		init:init
+	};
+ })();
+
+   rent.init();
+ 
+});
+

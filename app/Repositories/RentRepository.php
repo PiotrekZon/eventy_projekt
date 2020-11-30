@@ -47,7 +47,7 @@ class RentRepository extends BaseRepository
 
             }
         }
-        return $dates;
+        return range(1,301);
     }
 
     public function getAllByEvent($idEvent) {

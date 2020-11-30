@@ -115,6 +115,10 @@ var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ "./node_
 var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ "./node_modules/axios/lib/helpers/isURLSameOrigin.js");
 var createError = __webpack_require__(/*! ../core/createError */ "./node_modules/axios/lib/core/createError.js");
 
+
+
+
+
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
     var requestData = config.data;
@@ -49890,6 +49894,64 @@ __webpack_require__(/*! C:\xampp\htdocs\eventy_projekt\resources\js\app.js */"./
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\eventy_projekt\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
+
 /***/ })
 
 /******/ });
+
+$(document).ready(function() {
+	var rent = (function(){
+        var inputBoxes = $('.rent-dates');
+        
+        var rentChoose = function(){
+
+	    	var dates = [];
+	    	inputBoxesChecked = $('.rent-dates:checked');
+
+		count = $('.rent-dates:checked').length;
+
+	    	if(count > 0)
+	    	{
+	    		inputBoxesChecked.each(function(){
+	    		     dates.push($(this).val());	
+			});	
+
+	    		if(count == 1)
+	    		{
+	    			$('.rent-button').html("Rezerwuj "+ count + " bilecik");
+	    		}
+	    		else
+	    		{
+	    			$('.rent-button').html("Rezerwuj "+ count + " bileciki");
+	    		}	    		
+	    		$('.rent-button').show();
+	    	}
+	    	else
+	    	{
+	    		$('.rent-button').hide();
+	    	}
+
+	    	$('.rent-list').html(dates.toString());
+	    	$('.dates_input').val(dates.toString());
+	};
+
+
+	var bindFunctions = function() {
+			
+		inputBoxes.on("change", rentChoose);
+	};	
+
+	var init = function() {
+		rentChoose();
+    		bindFunctions();
+
+	  };
+
+	 return {
+		init:init
+	};
+ })();
+
+   rent.init();
+ 
+});
