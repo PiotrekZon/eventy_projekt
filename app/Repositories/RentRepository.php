@@ -51,13 +51,13 @@ class RentRepository extends BaseRepository
     }
 
     public function getAllByEvent($idEvent) {
-        return $this->model->with('event')->where('event_id','=',$idEvent)->get();
+        return $this->model->with('event')->where('event_id','=',$idEvent)->get(); //dla konkretnego ID eventu pobieramy wszystkie rekordy z tabeli rezerwacji
     }
     public function accept($idRent) {
  
-        $rent = $this->model->find($idRent);
-        $rent->status = 2;
-        $rent->save();
+        $rent = $this->model->find($idRent);//odnajduje potrzebną rezerwację,
+        $rent->status = 2; //zmiena statusu rezerwacji
+        $rent->save(); //zapisanie w bazie
         
         return $rent;
     }
