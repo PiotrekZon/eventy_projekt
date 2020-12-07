@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
            <h2>Wybierz miejsce</h2>
-            <table class="event-list display table-hover table"> 
+            <table class="event-list display table-hover table">
              <thead>
               <tr>
                <th></th>
@@ -18,18 +18,18 @@
             @foreach ($dates as $k => $v)
             <tr>
                 @if (is_array($v))
-                <td>               
-                    {{$v[0]}}  Zarezerwowane 
+                <td>
+                    {{$v[0]}}  Zarezerwowane
                 </td>
                 @else
-                <td>               
+                <td>
                     {{$v}}, <input type="checkbox" name="dates[]" class="rent-dates" value="{{$v}} "/> Zarezerwuj!
                 </td>
-                
+
                 @endif
 
             </tr>
- 
+
             @endforeach
             </table>
         </div>
@@ -57,7 +57,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="event_id" value="{{ $event_id }}">
                 <input type="hidden" name="dates_input" class="dates_input">
-               Wybrane dni:
+               Wybrane miejsca:
                 <div class="rent-list"></div>
                 <br/>Dane najmującego:<br/>
             <textarea name="renter" class="renter modal-body__renterTextArea"></textarea>

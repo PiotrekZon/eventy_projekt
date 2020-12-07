@@ -49830,7 +49830,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   null,
   null
-  
+
 )
 
 /* hot reload */
@@ -49850,7 +49850,7 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 
@@ -49902,7 +49902,7 @@ module.exports = __webpack_require__(/*! C:\xampp\htdocs\eventy_projekt\resource
 $(document).ready(function() {
 	var rent = (function(){
         var inputBoxes = $('.rent-dates');
-        
+
         var rentChoose = function(){
 
 	    	var dates = [];
@@ -49913,8 +49913,8 @@ $(document).ready(function() {
 	    	if(count > 0)
 	    	{
 	    		inputBoxesChecked.each(function(){
-	    		     dates.push($(this).val());	
-			});	
+	    		     dates.push($(this).val());
+			});
 
 	    		if(count == 1)
 	    		{
@@ -49923,7 +49923,7 @@ $(document).ready(function() {
 	    		else
 	    		{
 	    			$('.rent-button').html("Rezerwuj "+ count + " bileciki");
-	    		}	    		
+	    		}
 	    		$('.rent-button').show();
 	    	}
 	    	else
@@ -49937,9 +49937,9 @@ $(document).ready(function() {
 
 
 	var bindFunctions = function() {
-			
+
 		inputBoxes.on("change", rentChoose);
-	};	
+	};
 
 	var init = function() {
 		rentChoose();
@@ -49953,5 +49953,5 @@ $(document).ready(function() {
  })();
 
    rent.init();
- 
+
 });

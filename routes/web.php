@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
- 
+
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -39,6 +39,5 @@ Route::get('/rents/{id?}', [App\Http\Controllers\RentController::class, 'show'],
     return $id;
 })->name('rents');
 
-
+//Route::post('/rents', 'RentController@create')->name('rents.create');
 Route::post('/rents', [App\Http\Controllers\RentController::class, 'create'])->name('rents.create');
-

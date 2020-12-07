@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 use App\Repositories\RentRepository;
-use App\Requests\CreateRentRequest;
+use App\Http\Requests;
+use App\Http\Requests\CreateRentRequest;
 
 class RentController extends Controller
 {
@@ -17,38 +17,38 @@ class RentController extends Controller
     public function __construct()
     {
         //$this->middleware('auth');
-       
+
     }
     public function getAll(RentRepository $rent)
     {
         $rents = $rent->getAll();
- 
+
         return response()
                 ->json($rents);
     }
- 
- 
+
+
     public function getAllByEvent(RentRepository $rent, $id)
     {
         $rents = $rent->getAllByEvent($id);
- 
+
         return response()
                 ->json($rents);
     }
- 
+
     public function accept(RentRepository $rent, $id)
     {
         $rent = $rent->accept($id);
- 
+
         return response()
                 ->json($rent);
     }
- 
+
    public function delete(RentRepository $rent, $id)
     {
-        
+
         $status = $rent->delete($id);
- 
+
         if($status)
         {
             return response()
@@ -71,10 +71,10 @@ class RentController extends Controller
         return view('rents', ['dates' => $dates, 'event_id' => $id]);
     }
 
-   /**
-     * Create rent.
-     *
-     * @return \Illuminate\Http\Response
+
+
+     /**
+     *@param CreateRentRequest $request
      */
     public function create(RentRepository $rent, CreateRentRequest $request)
     {
