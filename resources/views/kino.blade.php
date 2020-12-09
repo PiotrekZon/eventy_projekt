@@ -2,11 +2,15 @@
 
 @section('content')
 
+<center><h2> Wszystkie nadchodzące seanse filmowe </h2></center>
+
+
 <!-- Thumbnails -->
 @isset($events)
     <div class="container thumbs">
       
       @foreach ($events as $event)
+    
  
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">

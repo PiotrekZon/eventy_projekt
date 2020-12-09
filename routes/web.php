@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
 Route::get('/', function () {
     return view('welcome');
+    
 });
+
+
 
 Auth::routes();
 
@@ -33,7 +35,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 
+Route::get('/kino', [App\Http\Controllers\CategoryController::class, 'kino'])->name('kino');
 
+Auth::routes();
+
+Route::get('/teatr', [App\Http\Controllers\CategoryController::class, 'teatr'])->name('teatr');
+
+Auth::routes();
+
+Route::get('/koncert', [App\Http\Controllers\CategoryController::class, 'koncert'])->name('koncert');
+
+Auth::routes();
 
 Route::get('/rents/{id?}', [App\Http\Controllers\RentController::class, 'show'], function ($id = null) {
     return $id;

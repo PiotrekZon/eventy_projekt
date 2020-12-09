@@ -38,7 +38,16 @@
         </div>
         <nav role="navigation" class="collapse navbar-collapse navbar-right">
           <ul class="navbar-nav nav">
-            <li class="active"><a href="/">Strona główna</a></li>
+            <li class="active"><a href="/">Wszystkie eventy</a></li>
+          </ul>
+          <ul class="navbar-nav nav">
+          <li class="active"><a href="kino">Kino</a></li>
+          </ul>
+          <ul class="navbar-nav nav">
+          <li class="active"><a href="teatr">Teatr</a></li>
+          </ul>
+          <ul class="navbar-nav nav">
+          <li class="active"><a href="koncert">Koncerty</a></li>
           </ul>
           <ul class="navbar-nav nav" style="float:right;">
             @if (Auth::guest())
