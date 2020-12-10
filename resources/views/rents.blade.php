@@ -7,31 +7,16 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
            <h2>Wybierz miejsce</h2>
-            <table class="event-list display table-hover table">
-             <thead>
-              <tr>
-               <th></th>
-               <th></th>
-               <th></th>
-              </tr>
-             </thead>
+            
             @foreach ($dates as $k => $v)
-            <tr>
                 @if (is_array($v))
-                <td>
                     {{$v[0]}}  Zarezerwowane
-                </td>
                 @else
-                <td>
-                    {{$v}}, <input type="checkbox" name="dates[]" class="rent-dates" value="{{$v}} "/> Zarezerwuj!
-                </td>
-
+                   <div class="jedno-miejsce">
+                    {{$v}}, <input type="checkbox" name="dates[]" class="rent-dates" value="{{$v}} "/> 
+                    </div>
                 @endif
-
-            </tr>
-
             @endforeach
-            </table>
         </div>
     </div>
 </div>

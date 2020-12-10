@@ -14,7 +14,6 @@
  
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src="img/events/{{$event->image}}" alt="" class="img-responsive">
           <div class="caption">
             <h3 class="">{{$event->title}}</h3>
             <p>{{$event->artist}}</p>

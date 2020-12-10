@@ -41,13 +41,13 @@
             <li class="active"><a href="/">Wszystkie eventy</a></li>
           </ul>
           <ul class="navbar-nav nav">
-          <li class="active"><a href="kino">Kino</a></li>
+          <li class="active"><a href="/kino">Kino</a></li>
           </ul>
           <ul class="navbar-nav nav">
-          <li class="active"><a href="teatr">Teatr</a></li>
+          <li class="active"><a href="/teatr">Teatr</a></li>
           </ul>
           <ul class="navbar-nav nav">
-          <li class="active"><a href="koncert">Koncerty</a></li>
+          <li class="active"><a href="/koncert">Koncerty</a></li>
           </ul>
           <ul class="navbar-nav nav" style="float:right;">
             @if (Auth::guest())

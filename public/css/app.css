@@ -447,6 +447,13 @@ h6,
   line-height: 1.2;
 }
 
+.jedno-miejsce {
+    width: 70px;  
+    display: block;
+    float:left;
+}
+
+
 hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
