@@ -44,8 +44,6 @@
                 <input type="hidden" name="dates_input" class="dates_input">
                Wybrane miejsca:
                 <div class="rent-list"></div>
-                <br/>Dane najmującego:<br/>
-            <textarea name="renter" class="renter modal-body__renterTextArea"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
