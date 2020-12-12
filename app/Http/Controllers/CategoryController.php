@@ -42,4 +42,10 @@ class CategoryController extends Controller
  
         return view('koncert', ['events' => $events]);
     }
+    public function archiwum(EventRepository $event)
+    {
+          $events = $event->getAll();
+ 
+        return view('archiwum', ['events' => $events]);
+    }
 }

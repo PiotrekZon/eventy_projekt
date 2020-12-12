@@ -49,6 +49,9 @@
           <ul class="navbar-nav nav">
           <li class="active"><a href="/koncert">Koncerty</a></li>
           </ul>
+          <ul class="navbar-nav nav">
+          <li class="active"><a href="/archiwum">Archiwum</a></li>
+          </ul>
           <ul class="navbar-nav nav" style="float:right;">
             @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>

@@ -47,6 +47,10 @@ Route::get('/koncert', [App\Http\Controllers\CategoryController::class, 'koncert
 
 Auth::routes();
 
+Route::get('/archiwum', [App\Http\Controllers\CategoryController::class, 'archiwum'])->name('archiwum');
+
+Auth::routes();
+
 Route::get('/rents/{id?}', [App\Http\Controllers\RentController::class, 'show'], function ($id = null) {
     return $id;
 })->name('rents');
