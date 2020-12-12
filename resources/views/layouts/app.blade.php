@@ -52,15 +52,21 @@
           <ul class="navbar-nav nav">
           <li class="active"><a href="/archiwum">Archiwum</a></li>
           </ul>
+          @can('admin-only', Auth::user())
+          <ul class="navbar-nav nav"> <li class="active"><a href="/admin">Panel Administratora</a></li></ul>
+          @endcan
+        
           <ul class="navbar-nav nav" style="float:right;">
             @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
+                           
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
+ 
  
                                 <ul class="dropdown-menu" role="menu">
                                     <li>

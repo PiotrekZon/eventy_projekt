@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
     
 });
+Route::get('/admin', function () {
+    return view('admin');
+    
+});
 
 
 
@@ -48,6 +52,8 @@ Route::get('/koncert', [App\Http\Controllers\CategoryController::class, 'koncert
 Auth::routes();
 
 Route::get('/archiwum', [App\Http\Controllers\CategoryController::class, 'archiwum'])->name('archiwum');
+
+
 
 Auth::routes();
 

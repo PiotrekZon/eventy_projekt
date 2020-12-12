@@ -60,6 +60,15 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        <!-- Navigation bar 
+                        <div class="form-group">
+                            <div class="checkbox text-center">
+                                <label>
+                                    <input type="checkbox" name="admin"> Czy jesteś administratorem?
+                                </label>
+                            </div>
+                        </div>
+                        -->
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
