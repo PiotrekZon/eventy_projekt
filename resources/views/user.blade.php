@@ -2,7 +2,7 @@
 
 @section('content')
       
-<h2 style="text-align:center">Witamy w panelu administratora</h2>
+<h2 style="text-align:center">Witaj w panelu użytkownika </h2>
 
 
 @endsection

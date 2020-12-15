@@ -52,35 +52,26 @@
           <ul class="navbar-nav nav">
           <li class="active"><a href="/archiwum">Archiwum</a></li>
           </ul>
-          @can('admin-only', Auth::user())
-          <ul class="navbar-nav nav"> <li class="active"><a href="/admin">Panel Administratora</a></li></ul>
-          @endcan
+          
         
           <ul class="navbar-nav nav" style="float:right;">
-            @if (Auth::guest())
+                            @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Zaloguj się</a></li>
-                            <li><a href="{{ route('register') }}">Rejestracja</a></li>
-                           
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
- 
- 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
- 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
+                            <li><a href="{{ route('register') }}">Rejestracja</a></li> 
+                            @else
+                              <li><a><h5>Witaj {{ Auth::user()->name }}</h5></a></li>
+                            @can('admin-only', Auth::user())
+                            <li><a href="/admin">Panel Administratora</a></li>
+                            @endcan
+                            <li>
+                            <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    Wyloguj
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                            </form>
                             </li>
                         @endif
           </ul>
