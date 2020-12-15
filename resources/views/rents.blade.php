@@ -32,24 +32,65 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-        <form method="POST" action="{{ route('rents.create') }}">
+        <form class="w3-container w3-display-middle w3-card-4 " method="POST" id="payment-form"  action="/payment/add-funds/paypal">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
           </div>
-
           <div class="modal-body">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="event_id" value="{{ $event_id }}">
                 <input type="hidden" name="dates_input" class="dates_input">
-               Wybrane miejsca:
-                <div class="rent-list"></div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
-            <button type="submit"  class="btn btn-primary">Zarezerwuj</button>
-          </div>
-        </form>
-    </div>
+                
+               <h2>Kup bilety szybką płatnością PayPal</h2>
+                Wybrane miejsca: {{ csrf_field() }} 
+                    
+                <div class="rent-list">
+                </div>
+                  
+                 <div id="paypal-button"></div>
+                    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+                    <script>
+                      paypal.Button.render({
+                        // Configure environment
+                        env: 'sandbox',
+                        client: {
+                          sandbox: 'demo_sandbox_client_id',
+                          production: 'demo_production_client_id'
+                        },
+                        // Customize button (optional)
+                        locale: 'en_US',
+                        style: {
+                          size: 'medium',
+                          color: 'gold',
+                          shape: 'pill',
+                        },
+
+                        // Enable Pay Now checkout flow (optional)
+                        commit: true,
+
+                        // Set up a payment
+                        payment: function(data, actions) {
+                          return actions.payment.create({
+                            transactions: [{
+                              amount: {
+                                total: '0.01',
+                                currency: 'USD'
+                              }
+                            }]
+                          });
+                        },
+                        // Execute the payment
+                        onAuthorize: function(data, actions) {
+                          return actions.payment.execute().then(function() {
+                            // Show a confirmation message to the buyer
+                            window.alert('Dziękujemy za dokonanie zakupów');
+                          });
+                        }
+                      }, '#paypal-button');
+
+                    </script>
+                  </div>
+             </form>
+     </div>
   </div>
 </div>

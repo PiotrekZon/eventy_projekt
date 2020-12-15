@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
+
 //API dostępowe do bazy Eventów - Podstawowy routing
 Route::middleware('auth:api')->get('/rent', 'App\Http\Controllers\Api\RentController@getAll'); //pobieranie wszystkich zakupionych biletów
 Route::middleware('auth:api')->get('/rent/{id?}', 'App\Http\Controllers\Api\RentController@getAllByEvent'); //pobieranie wszystkich rezerwacji dla konkretnego eventu

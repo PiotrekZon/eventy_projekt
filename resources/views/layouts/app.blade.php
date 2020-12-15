@@ -13,7 +13,7 @@
  
     <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title>
  
-	
+
  
     
     <!--Bootshape-->
@@ -58,8 +58,8 @@
         
           <ul class="navbar-nav nav" style="float:right;">
             @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Zaloguj się</a></li>
+                            <li><a href="{{ route('register') }}">Rejestracja</a></li>
                            
                         @else
                             <li class="dropdown">

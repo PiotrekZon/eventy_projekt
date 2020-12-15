@@ -63,3 +63,4 @@ Route::get('/rents/{id?}', [App\Http\Controllers\RentController::class, 'show'],
 
 //Route::post('/rents', 'RentController@create')->name('rents.create');
 Route::post('/rents', [App\Http\Controllers\RentController::class, 'create'])->name('rents.create');
+
