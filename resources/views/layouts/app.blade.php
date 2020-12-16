@@ -60,6 +60,10 @@
                             <li><a href="{{ route('register') }}">Rejestracja</a></li> 
                             @else
                               <li><a><h5>Witaj {{ Auth::user()->name }}</h5></a></li>
+                              
+                            @cannot('admin-only', Auth::user())
+                             <li><a href="/user">Panel Użytkownika</a></li>
+                             @endcannot
                             @can('admin-only', Auth::user())
                             <li><a href="/admin">Panel Administratora</a></li>
                             @endcan

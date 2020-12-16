@@ -26,11 +26,21 @@ Route::get('/admin', function () {
     
 });
 
+//panel użytkownika
+Route::get('/user', function () {
+    return view('user');
+    
+});
+
 
 Auth::routes();
 
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin');
 
+
+Auth::routes();
+
+Route::get('/user', [App\Http\Controllers\UserController::class, 'user'])->name('user');
 
 
 
