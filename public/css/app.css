@@ -7,12 +7,20 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+.admin-table th,.admin-table td {
+    max-width: 140px;
+    min-width: 80px;
+}
 
 .rent-button {
     position: absolute;
     bottom: 3vw;
     left: 5vw;
     z-index: 999;
+}
+
+.form-adminpanel input {
+    max-width: 100px;
 }
 
 

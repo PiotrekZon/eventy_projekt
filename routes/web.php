@@ -18,10 +18,19 @@ Route::get('/', function () {
     return view('welcome');
     
 });
+
+
+//panel aadmina
 Route::get('/admin', function () {
     return view('admin');
     
 });
+
+
+Auth::routes();
+
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin');
+
 
 
 
