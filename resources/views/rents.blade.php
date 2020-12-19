@@ -12,11 +12,26 @@
                 @if (is_array($v))
                     {{$v[0]}}  Zarezerwowane
                 @else
-                   <div class="jedno-miejsce">
-                    {{$v}}, <input type="checkbox" name="dates[]" class="rent-dates" value="{{$v}} "/> 
+                   <div class="jedno-miejsce wolne">
+                   <p>Wolne miejsce</p>
+                    {{$v}}. <input type="checkbox" name="dates[]" class="rent-dates" value="{{$v}} "/> 
                     </div>
                 @endif
+
             @endforeach
+             
+             @foreach ($dates as $k => $v)
+                @if (is_array($v))
+                    {{$v[0]}}  Zarezerwowane
+                @else
+                   <div class="jedno-miejsce zajete">
+                   <p>Zajęte miejsce</p>
+                    {{$v+100}}. <input type="checkbox" disabled="disabled" name="dates[]" class="rent-dates" /> 
+                    </div>
+                @endif
+
+            @endforeach
+             
         </div>
     </div>
 </div>

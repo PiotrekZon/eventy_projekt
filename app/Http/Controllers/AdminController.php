@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
  
-use App\Repositories\EventRepository;
+
+use DB;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
  
 class AdminController extends Controller
 {
@@ -23,11 +27,12 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function admin(EventRepository $event)
-    {
-          $events = $event->getAll();
- 
-        return view('admin', ['events' => $events]);
+    
+    public function index(){
+        $users = DB::select('select * from users');
+        $events = DB::select('select * from events');
+        $rents = DB::select('select * from rents');
+        return view('admin',['users'=>$users],['events'=>$events],['rents'=>$rents]);
         
     }
     

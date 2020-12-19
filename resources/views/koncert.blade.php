@@ -9,7 +9,7 @@
     <div class="container thumbs">
       
       @foreach ($events as $event)
-    
+    @if ($event->category == 'Koncert') 
  
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
@@ -29,6 +29,7 @@
         </div>
       </div>
      
+      @endif
       @endforeach
     </div>
 @endisset<!-- End Thumbnails -->

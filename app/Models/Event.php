@@ -14,6 +14,7 @@ class Event extends Model
  */
 protected $fillable = [
     'title', 'artist', 'category',  'date', 'place', 'ticket_num', 'price',
+    	
 ];
 public function user()
 {

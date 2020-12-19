@@ -9,7 +9,7 @@
       
       @foreach ($events as $event)
     
- 
+     @if ($event->category == 'Teatr') 
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
           <div class="caption">
@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-     
+     @endif
       @endforeach
     </div>
 @endisset<!-- End Thumbnails -->

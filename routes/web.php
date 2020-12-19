@@ -35,7 +35,7 @@ Route::get('/user', function () {
 
 Auth::routes();
 
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin');
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
 
 Auth::routes();

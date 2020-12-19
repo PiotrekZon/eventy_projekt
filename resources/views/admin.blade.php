@@ -18,13 +18,15 @@
             </tr>
             <thead>
             <tbody>
+            @foreach ($users as $user)
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ $user->id }}</td>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+                <td>{{ $user->created_at }}</td>
                 <td><a href="#">Usuń Użytkownika</a></td>
             </tr>
+            @endforeach
             </tbody>
             </table>     
 
@@ -34,7 +36,6 @@
 <hr>
 <h4>Wszystkie eventy</h4>
 <!-- List of event -->
-@isset($events)
     <div class="container thumbs">    
         <table class="table">
         <thead>
@@ -66,7 +67,6 @@
         </table>     
 
     </div>
-@endisset<!-- End List of event -->
 <hr>
 <h4>Dodaj event</h4>
 
@@ -108,7 +108,29 @@
 
 <hr>
 <h4>Sprzedane bilety</h4>
+<!-- List of event -->
+    <div class="container thumbs">    
+        <table class="table">
+        <thead>
+        <tr>
+        <th scope="col">ID sprzedaży</th>
+        <th scope="col">Event</th>
+        <th scope="col">ID użytkownika</th>
+        <th scope="col">Nazwa użytkownika</th>
+        <th scope="col">Email</th>
+        <th scope="col">Cena</th>
+        <th scope="col">Miejsce</th>
+        <th scope="col">Status</th>
+        </tr>
+        <thead>
+        <tbody>
+        <tr>
 
+        </tbody>
+        </table>     
+
+    </div>
+<hr>
 
 
 
