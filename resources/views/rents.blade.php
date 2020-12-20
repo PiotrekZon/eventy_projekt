@@ -26,7 +26,7 @@
                 @else
                    <div class="jedno-miejsce zajete">
                    <p>Zajęte miejsce</p>
-                    {{$v+100}}. <input type="checkbox" disabled="disabled" name="dates[]" class="rent-dates" /> 
+                    {{$v+100}}. <span style="font-size:15px;">&#x2612;</span>
                     </div>
                 @endif
 

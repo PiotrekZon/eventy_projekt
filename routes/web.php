@@ -26,11 +26,7 @@ Route::get('/admin', function () {
     
 });
 
-//panel użytkownika
-Route::get('/user', function () {
-    return view('user');
-    
-});
+
 
 
 Auth::routes();
@@ -40,7 +36,7 @@ Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->na
 
 Auth::routes();
 
-Route::get('/user', [App\Http\Controllers\UserController::class, 'user'])->name('user');
+Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
 
 
 

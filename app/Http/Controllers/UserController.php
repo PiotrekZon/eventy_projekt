@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
  
-use App\Repositories\EventRepository;
+use DB;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
  
 class UserController extends Controller
 {
@@ -23,13 +25,12 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function user(EventRepository $event)
-     {
-          $events = $event->getAll();
- 
-        return view('user', ['events' => $events]);
+     public function index(){
+        $users = DB::select('select * from users');
+        $rents = DB::select('select * from rents');
+        return view('user',['users'=>$users],['rents'=>$rents]);
         
-     }
+    }
     
 
 }
