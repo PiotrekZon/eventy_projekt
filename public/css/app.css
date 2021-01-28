@@ -29,8 +29,8 @@
 
 .rent-button {
     position: absolute;
-    bottom: 3vw;
-    left: 5vw;
+    bottom: -50px;
+    left: 10px;
     z-index: 999;
 }
 

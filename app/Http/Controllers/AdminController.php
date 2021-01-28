@@ -30,11 +30,21 @@ class AdminController extends Controller
     
     public function index(){
         $users = DB::select('select * from users');
-        $events = DB::select('select * from events');
         $rents = DB::select('select * from rents');
-        return view('admin',['users'=>$users],['events'=>$events],['rents'=>$rents]);
-        
+
+        return view('admin',['users'=>$users],['rents'=>$rents]);
     }
     
+     
+    //Obsługa statusu sprzedanego biletu
+    function update(Request $req)
+    {
+ 
+        
+        $status = $req->input('status');
+        $id = $req->input('id');
+        
+        DB::update('update rents set status = ? where id = ?',[$status,$id]);
+    }
 
 }

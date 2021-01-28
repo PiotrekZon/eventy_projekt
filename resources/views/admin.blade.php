@@ -34,40 +34,8 @@
 
 
 <hr>
-<h4>Wszystkie eventy</h4>
-<!-- List of event -->
-    <div class="container thumbs">    
-        <table class="table">
-        <thead>
-        <tr>
-        <th scope="col">Tytuł</th>
-        <th scope="col">Nazwa/Artysta</th>
-        <th scope="col">Kategoria</th>
-        <th scope="col">Data</th>
-        <th scope="col">Miejsce</th>
-        <th scope="col">Liczba miejsc</th>
-        <th scope="col">Cena</th>
-        <th scope="col">Usuń event</th>
-        </tr>
-        <thead>
-        <tbody>
-        <tr>
-        @foreach ($events as $event)
-        <td>{{$event->title}}</td>
-        <td>{{$event->artist}}</td>
-        <td>{{$event->category}}</td>
-        <td>{{$event->date}}</td>
-        <td>{{$event->place}}</td>
-        <td>{{$event->ticket_num}}</td>
-        <td>{{$event->price}}</td>
-        <td><a href="#">Usuń Event</a></td>
-        </tr>
-        @endforeach
-        </tbody>
-        </table>     
 
-    </div>
-<hr>
+
 <h4>Dodaj event</h4>
 
  <div class="container thumbs">
@@ -117,15 +85,36 @@
         <th scope="col">Event</th>
         <th scope="col">ID użytkownika</th>
         <th scope="col">Nazwa użytkownika</th>
-        <th scope="col">Email</th>
         <th scope="col">Cena</th>
         <th scope="col">Miejsce</th>
         <th scope="col">Status</th>
         </tr>
         <thead>
         <tbody>
-        <tr>
-
+        @foreach ($rents as $rent)
+            <tr>
+                <td>{{ $rent->id }}</td>
+                <td>{{ $rent->event }}</td>
+                <td>{{ $rent->user_id }}</td>
+                <td>{{ $rent->user_name }}</td>
+                <td>{{ $rent->price }}</td>
+                <td>{{ $rent->place_num }}</td>
+                <td>
+                @if ($rent->status == 0 )
+                 <span>W realizacji</span>
+                 <form action="admin" method="POST">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $rent->id }}">
+                    <input type="hidden" name="status" value="1">
+                 <button type="submit" class="tn btn-primary"  data-target="#myModal">Zakończ</button>
+                    </form>
+                @else
+                    <p>Zakończone</p>
+                
+                @endif
+                 </td>
+            </tr>
+            @endforeach
         </tbody>
         </table>     
 
@@ -133,6 +122,9 @@
 <hr>
 
 
+    
+    
+    
 
 </div>
 

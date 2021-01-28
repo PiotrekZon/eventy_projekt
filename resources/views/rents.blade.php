@@ -2,45 +2,82 @@
 
 @section('content')
 
-@isset($dates)
+
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-           <h2>Wybierz miejsce</h2>
-            
-            @foreach ($dates as $k => $v)
-                @if (is_array($v))
-                    {{$v[0]}}  Zarezerwowane
-                @else
-                   <div class="jedno-miejsce wolne">
-                   <p>Wolne miejsce</p>
-                    {{$v}}. <input type="checkbox" name="dates[]" class="rent-dates" value="{{$v}} "/> 
-                    </div>
-                @endif
+    <div class="col">
 
-            @endforeach
-             
-             @foreach ($dates as $k => $v)
-                @if (is_array($v))
-                    {{$v[0]}}  Zarezerwowane
-                @else
-                   <div class="jedno-miejsce zajete">
-                   <p>Zajęte miejsce</p>
-                    {{$v+100}}. <span style="font-size:15px;">&#x2612;</span>
-                    </div>
-                @endif
+   @foreach ($events as $event)
+    @if ($event->id ==  request()->route('id') )  
+ 
 
-            @endforeach
-             
+        <h1 class="">{{$event->title}}</h1>
+        <span><strong>Artysta:</strong> {{$event->artist}}</span><br />
+            <span><strong>Kategoria:</strong> {{$event->category}}</span><br />
+            <span><strong>Data:</strong> {{$event->date}}</span><br />
+            <span><strong>Miejsce:</strong> {{$event->place}}</span><br /><br />
+            <h5><strong>Cena:</strong> {{$event->price}} PLN</h5> <br />
+            <h5><strong>Opis wydarzenia:</strong> </h5> 
+            <p>{{$event->description}}</p>
+     
+      @endif
+      @endforeach
+   
+    <h2>Wybierz miejsce</h2>
+
+     @foreach ($events as $event)
+        @if ($event->id ==  request()->route('id') and $var = $event->ticket_num ) 
+        @endif
+     @endforeach
+
+     @for ($i = $var; $i > 0; $i--) 
+      <?php $j = 0; ?> 
+       @foreach ($rents as $rent)
+                    @if ($rent->event_id ==  request()->route('id') and $i == $rent->place_num and $rent->status == 1)
+                       <div class="jedno-miejsce zajete">
+                        <p>Zajęte miejsce</p>
+                        {{$i}}. <span style="font-size:15px;">&#x2612;</span>
+                        </div> 
+                           <?php $j = 1; ?>     
+                    @endif
+        @endforeach
+        @if ($j== 0)
+        <div class="jedno-miejsce wolne">
+            <p>Wolne miejsce</p>
+            {{ $i }}. <input type="checkbox" name="dates[]" class="rent-dates" value="{{ $i }}"/> 
+        </div> 
+        @endif
+        
+     @endfor
+    
+        
+    <form action="submit" method="POST">
+       @csrf
+       
+        @foreach ($events as $event)
+    @if ($event->id ==  request()->route('id') )
+        <input type="hidden" name="event_id" value="{{$event->id}}">
+        <input type="hidden" name="price" value="{{$event->price}}">
+        <input type="hidden" name="payment_status" value="0">
+        <input type="hidden" name="status" value="{{$event-place_num}}">
+        <input type="hidden" name="place_num" value="75">
+        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+        <input type="hidden" name="user_name" value="{{ Auth::user()->name }}">
+        <input type="hidden" name="event" value="{{$event->title}}">
+      @endif
+      @endforeach
+
+        <button type="submit" class="rent-button btn btn-primary btn-lg"  data-target="#myModal">BUtton</button>
+    </form>
+  
         </div>
     </div>
 </div>
-@endisset
+
 
 @endsection
 
 
-<button class="rent-button btn btn-primary btn-lg" style="display:none" data-toggle="modal" data-target="#myModal">BUtton</button>
 
 
 <!-- Modal -->
@@ -49,7 +86,7 @@
     <div class="modal-content">
         <form class="w3-container w3-display-middle w3-card-4 " method="POST" id="payment-form"  action="/payment/add-funds/paypal">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        
           </div>
           <div class="modal-body">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

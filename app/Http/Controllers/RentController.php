@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\RentRepository;
 use App\Http\Requests;
+use DB;
 use App\Http\Requests\CreateRentRequest;
+use App\Models\Rent;
 
 class RentController extends Controller
 {
@@ -19,6 +21,28 @@ class RentController extends Controller
         //$this->middleware('auth');
 
     }
+    
+    
+    //Obsługa formularza kupna biletu
+    function save(Request $req)
+    {
+        //print_r($req->input());
+        $event_id = $req -> input('event_id');
+        $price = $req -> input('price');
+        $payment_status = $req -> input('payment_status');
+        $status = $req -> input('status');
+        $place_num = $req -> input('place_num');
+        $user_id = $req -> input('user_id');
+        $user_name = $req -> input('user_name');
+        $event = $req -> input('event');
+        
+
+        
+        $data = array ('event_id' => $event_id, 'price' => $price,'payment_status' => $payment_status, 'status' => $status, 'place_num' => $place_num, 'user_id' => $user_id, 'user_name' => $user_name, 'event' => $event);
+        DB::table('rents')->insert($data);
+    }
+    
+    
     public function getAll(RentRepository $rent)
     {
         $rents = $rent->getAll();
@@ -66,9 +90,10 @@ class RentController extends Controller
      */
     public function show(RentRepository $rent, $id = 1  )
     {
-        $dates = $rent->findDatesByEvent($id);
+        $events = DB::select('select * from events');
+        $rents = DB::select('select * from rents');
 
-        return view('rents', ['dates' => $dates, 'event_id' => $id]);
+        return view('rents', ['events'=>$events, 'rents'=>$rents, 'event_id' => $id]);
     }
 
 

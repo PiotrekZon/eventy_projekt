@@ -34,6 +34,9 @@ Auth::routes();
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
 
+Route::post('/admin',[App\Http\Controllers\AdminController::class, 'update']);
+
+
 Auth::routes();
 
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
@@ -75,6 +78,13 @@ Auth::routes();
 Route::get('/rents/{id?}', [App\Http\Controllers\RentController::class, 'show'], function ($id = null) {
     return $id;
 })->name('rents');
+
+
+
+Route::post('/rents/submit',[App\Http\Controllers\RentController::class, 'save']);
+
+
+
 
 //Route::post('/rents', 'RentController@create')->name('rents.create');
 Route::post('/rents', [App\Http\Controllers\RentController::class, 'create'])->name('rents.create');

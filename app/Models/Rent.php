@@ -11,6 +11,9 @@ class Rent extends Model
      *
      * @var array
      */
+    
+protected $table = 'rents';
+    
     protected $fillable = [
         'id','event_id','price','payment_status','status','created_at','updated_at','place_num','user_id','user_name','event'
     ];
